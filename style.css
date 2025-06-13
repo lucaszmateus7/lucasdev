@@ -1,0 +1,504 @@
+/* style.css */
+
+/* --- Variáveis CSS --- */
+:root {
+  --color-primary-dark: #000; /* Fundo principal */
+  --color-text-light: #fff; /* Texto claro */
+  --color-text-medium: #808080; /* Texto cinza */
+  --color-accent-purple: #9400d3; /* Cor de destaque principal (roxo) */
+  --color-accent-purple-dark: #7a00b3; /* Roxo mais escuro para hover */
+  --color-box-bg: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Fundo das caixas de especialidade */
+  --color-box-border: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Borda das caixas de especialidade */
+  --color-button-light: #f0f0f0; /* Botão claro */
+  --color-button-light-hover: #808080; /* Hover do botão claro */
+  --color-whatsapp-button: #25d366; /* Botão do WhatsApp */
+  --color-whatsapp-button-hover: #1ebc59; /* Hover do WhatsApp */
+
+  /* Espaçamentos e tamanhos comuns (em rem para escalabilidade) */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.25rem; /* 20px */
+  --spacing-lg: 1.875rem; /* 30px */
+  --spacing-xl: 2.5rem; /* 40px */
+  --section-padding-y: 5rem; /* 80px */
+  --section-padding-x: 4%;
+  --border-radius-sm: 0.625rem; /* 10px */
+  --border-radius-md: 0.9375rem; /* 15px */
+  --transition-speed-fast: 0.2s;
+  --transition-speed-normal: 0.3s;
+}
+
+/* --- Reset Básico e Fontes --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif; /* Certifique-se de importar esta fonte no HTML */
+}
+
+body {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-light);
+  line-height: 1.6; /* Melhora a legibilidade do texto */
+  -webkit-font-smoothing: antialiased; /* Para melhor renderização de fontes */
+  -moz-osx-font-smoothing: grayscale; /* Para melhor renderização de fontes */
+}
+
+/* --- Estrutura Geral --- */
+.interface {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md); /* 20px */
+}
+
+/* --- Cabeçalho --- */
+header {
+  padding: var(--spacing-xl) 0; /* 40px */
+}
+
+/* Estilo para a barra de navegação (navbar no HTML) */
+.navbar {
+  /* Se você quiser a navbar fixa, adicione aqui */
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  /* z-index: 1000; */
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 122px;
+}
+
+.menu {
+  /* Removido estilos de posicionamento que podem ser conflitantes com .navbar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ajuste para o layout da navegação */
+  /* Se este for o menu de navegação principal, ele não deve ter width/height absolutos */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-xl); /* 40px */
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-text-medium);
+  text-decoration: none;
+  transition: color var(--transition-speed-normal),
+    transform var(--transition-speed-normal);
+}
+
+nav a:hover {
+  color: var(--color-text-light);
+  transform: scale(1.1);
+}
+
+nav a:focus {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 3px;
+}
+
+/* --- Seções Comuns --- */
+section {
+  padding: var(--section-padding-y) 0;
+  text-align: center;
+}
+
+section h1,
+section h2,
+section h3 {
+  font-weight: 600;
+  margin-bottom: var(--spacing-md); /* 20px */
+}
+
+.titulo span,
+span {
+  color: var(--color-accent-purple);
+}
+
+/* --- Seção Topo do Site --- */
+.topo-do-site {
+  /* Pode adicionar estilos específicos para esta seção se precisar */
+  padding-top: calc(
+    var(--section-padding-y) + 60px
+  ); /* Ajuste para navbar fixa */
+}
+
+.topo-texto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-md); /* 20px */
+  text-align: center; /* Garante que o texto esteja centralizado */
+  max-width: 800px; /* Limita a largura para melhor leitura */
+  margin: 0 auto; /* Centraliza o bloco de texto */
+}
+
+.topo-texto h1 {
+  font-size: 2.5rem; /* Tamanho da fonte ajustado para responsividade */
+  line-height: 1.2;
+}
+
+.topo-texto p {
+  font-size: 1.125rem; /* 18px */
+  opacity: 0.9;
+}
+
+.btn-contato button {
+  padding: var(--spacing-sm) var(--spacing-xl); /* 10px 40px */
+  background: var(--color-button-light);
+  border: none;
+  border-radius: var(--border-radius-md); /* 15px */
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-speed-normal);
+  color: var(--color-primary-dark); /* Texto escuro no botão claro */
+}
+
+.btn-contato button:hover {
+  background: var(--color-button-light-hover);
+  color: var(--color-text-light);
+}
+
+.btn-contato button:focus {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 3px;
+}
+
+/* --- Seção Redes Sociais --- */
+.redes-sociais {
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.icones-redes {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg); /* 30px */
+  margin-top: var(--spacing-lg); /* 30px */
+  flex-wrap: wrap;
+}
+
+.icones-redes a {
+  font-size: 2.1875rem; /* 35px */
+  color: var(--color-accent-purple);
+  transition: var(--transition-speed-normal);
+}
+
+.icones-redes a:hover {
+  transform: scale(1.2);
+  color: var(--color-text-light);
+}
+
+.icones-redes a:focus {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 3px;
+}
+
+/* --- Seção Especialidades --- */
+.especialidades-box {
+  background: var(--color-box-bg);
+  border: 1px solid var(--color-box-border);
+  border-radius: var(--border-radius-sm); /* 10px */
+  padding: var(--spacing-lg); /* 30px */
+  max-width: 400px;
+  transition: var(--transition-speed-normal);
+  display: flex; /* Para centralizar o conteúdo verticalmente */
+  flex-direction: column;
+  align-items: center;
+}
+
+.especialidades-box:hover {
+  border-color: var(--color-accent-purple);
+  transform: scale(1.05);
+}
+
+.especialidades-box i {
+  font-size: 2.5rem; /* 40px */
+  color: var(--color-accent-purple);
+  margin-bottom: var(--spacing-sm); /* 10px */
+}
+
+/* style.css */
+
+/* ... (seus estilos anteriores, incluindo as variáveis :root) ... */
+
+/* --- Seção Projetos --- */
+.projetos {
+  background-color: var(
+    --color-primary-dark
+  ); /* Ou use uma de suas cores de fundo */
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Layout responsivo de grid */
+  gap: var(--spacing-lg); /* 30px */
+  margin-top: var(--spacing-xl); /* Espaçamento após o título */
+}
+
+.projeto-card {
+  background-color: var(
+    --color-box-bg
+  ); /* Fundo similar ao das especialidades */
+  border: 1px solid var(--color-box-border);
+  border-radius: var(--border-radius-sm); /* 10px */
+  padding: var(--spacing-lg); /* 30px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition-speed-normal) ease;
+  overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
+}
+
+.projeto-card:hover {
+  border-color: var(--color-accent-purple);
+  transform: translateY(-5px); /* Um pequeno levantamento no hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave no hover */
+}
+
+.projeto-card img {
+  width: 100%;
+  height: 200px; /* Altura fixa para as imagens dos projetos */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  border-radius: var(--border-radius-sm); /* 10px */
+  margin-bottom: var(--spacing-md); /* 20px */
+}
+
+.projeto-card h3 {
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: var(--spacing-sm); /* 10px */
+  color: var(--color-text-light);
+}
+
+.projeto-card p {
+  font-size: 0.95rem; /* Um pouco menor para a descrição */
+  color: var(--color-text-medium);
+  flex-grow: 1; /* Faz a descrição ocupar o espaço disponível */
+  margin-bottom: var(--spacing-md); /* 20px */
+}
+
+.projeto-links {
+  display: flex;
+  gap: var(--spacing-sm); /* 10px */
+  margin-top: auto; /* Empurra os links para o final do card */
+  justify-content: center; /* Centraliza os botões */
+  width: 100%; /* Ocupa a largura total para centralização */
+}
+
+.btn-projeto {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs); /* 8px */
+  padding: 8px 15px;
+  background-color: var(--color-accent-purple);
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-radius: var(--border-radius-sm); /* 10px */
+  font-weight: 500;
+  transition: background-color var(--transition-speed-normal),
+    transform var(--transition-speed-normal);
+  border: 1px solid var(--color-accent-purple); /* Borda para consistência */
+}
+
+.btn-projeto:hover {
+  background-color: var(--color-accent-purple-dark);
+  transform: translateY(-2px); /* Pequeno levantamento no hover */
+}
+
+.btn-projeto:focus {
+  outline: 2px solid var(--color-text-light);
+  outline-offset: 2px;
+}
+
+.btn-projeto i {
+  font-size: 1rem; /* Tamanho do ícone */
+  color: inherit; /* Herda a cor do texto do botão */
+}
+
+/* --- Responsividade para Projetos --- */
+@media (max-width: 768px) {
+  .projetos-grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+  }
+}
+
+/* --- Seção Sobre --- */
+.sobre {
+  /* Adicione estilos específicos para a seção Sobre aqui se precisar */
+}
+
+.sobre-texto {
+  text-align: left; /* Alinha o texto à esquerda dentro da caixa */
+  max-width: 800px; /* Limita a largura do texto para melhor leitura */
+  margin: 0 auto;
+}
+
+.sobre-texto h2 {
+  font-size: 2rem; /* Tamanho da fonte ajustado */
+  margin-bottom: var(--spacing-md);
+}
+
+.sobre-texto p {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.7;
+}
+
+/* --- Seção Contato --- */
+.contato form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm) 10.5;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 5px;
+}
+
+.contato input,
+.contato textarea {
+  padding: var(--spacing-sm) 1.5; /* 15px */
+  border: none;
+  border-radius: var(--border-radius-sm); /* 10px */
+  font-size: 1rem; /* 16px */
+  background-color: rgba(255, 255, 255, 0.1); /* Um fundo sutil */
+  color: var(--color-text-light);
+  outline: none; /* Remove outline padrão */
+  transition: border-color var(--transition-speed-fast);
+}
+
+.contato input::placeholder,
+.contato textarea::placeholder {
+  color: var(--color-text-medium);
+  opacity: 0.7;
+}
+
+.contato input:focus,
+.contato textarea:focus {
+  border: 1px solid var(--color-accent-purple); /* Borda ao focar */
+  box-shadow: 0 0 0 3px rgba(148, 0, 211, 0.3); /* Sombra suave ao focar */
+}
+
+.contato button {
+  align-self: center;
+  background-color: var(--color-accent-purple);
+  color: var(--color-text-light);
+  font-weight: bold;
+  border: none;
+  padding: var(--spacing-sm) 1.5 var(--spacing-lg); /* 15px 30px */
+  border-radius: var(--border-radius-sm); /* 10px */
+  cursor: pointer;
+  transition: var(--transition-speed-normal);
+}
+
+.contato button:hover {
+  background-color: var(--color-accent-purple-dark);
+}
+
+.contato button:focus {
+  outline: 2px solid var(--color-text-light);
+  outline-offset: 3px;
+}
+
+/* --- Botão Flutuante do WhatsApp --- */
+.whatsapp-button {
+  position: fixed;
+  bottom: var(--spacing-md); /* 20px */
+  right: var(--spacing-md); /* 20px */
+  font-size: 2.75rem; /* 28px */
+  padding: var(--spacing-sm) 1.5; /* 15px */
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 999;
+  transition: var(--transition-speed-normal) ease;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.35);
+}
+
+.whatsapp-button:focus {
+  outline: 2px solid var(--color-text-light);
+  outline-offset: 3px;
+}
+
+.whatsapp-button i {
+  color: white;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  /* Médio a pequeno */
+  .topo-texto h1 {
+    font-size: 2rem; /* Reduz o tamanho do título em telas menores */
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md); /* 20px */
+  }
+
+  .flex {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  header .interface {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra pequeno */
+  .topo-texto h1 {
+    font-size: 1.75rem; /* Ajusta mais para telas muito pequenas */
+  }
+
+  .topo-texto p {
+    font-size: 1rem;
+  }
+
+  .especialidades-box {
+    padding: var(--spacing-md); /* 20px */
+  }
+}
